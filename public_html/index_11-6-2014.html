@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<!--
+        3/10/2014               RG
+
+        HTML code for Showcase Dashboard Phone App
+
+		
+		CHANGE HISTORY
+		
+		DATE				REQ#			PGMR			VERSION	DESC
+		3/10/2014						RG									CREATE APP
+		
+		9/2/2014							RG					2.1.1		ADD REPORTS FOR UK BOX OFFICE TRANSACTION
+																							USING PHONE APP.
+																		
+		9/18/2014						RG					2.1.2	 	(1) ALTER REPORT HEADINGS
+																							(2) ALTER FONT SIZE FOR THEATRE NAME ON REPORTS
+																							(3) RESEARCH PINCH AND ZOOM WITH PHONEGAP BUILD
+
+		9/19/2014						RG					2.1.3		ALTER APPEARANCE OF BUTTONS
+		
+		9/22/2014						RG					2.1.4		ALTER APPEARANCE OF BUTTONS
+
+		9/22/2014						RG					2.1.5		ALTER APPEARANCE OF BUTTONS
+
+		9/22/2014						RG					2.1.6		CHANGE HEADING FOR UK LIFETIME 
+																							SMARTPHONE APP SALES
+		
+		
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+    <title>Showcase Dashboard</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/swiper.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+    
+</head>
+
+<body bgcolor="black">
+
+    <!--  INDEX PAGE -->
+    <div data-role="page" id="indexPage"  data-theme="a"   > 
+        <!--
+        <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="120" height="19"></h1> 
+            <a href="javascript:history.go(0)" data-role="button" data-icon="refresh">Refresh</a>
+        </div>
+       -->
+        <div data-theme="a">
+            <table align="center">
+                <tr><td colspan="3"><h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="266" height="19"></h1> </td></tr>     
+				<tr><td colspan=3><a href="javascript:history.go(0)" data-role="button" data-icon="refresh" data-inline=true data-mini=true>Refresh</a></td></tr>
+                <tr><td colspan="3">&nbsp;</td></tr>                
+                <tr>
+                    <td><a href="#underCons"><img src="http://naimobile.nationalamusements.com/imgs/rpt_chart.png" alt="Analytics" border="0" height="100" width="100"></a></td>
+                    <td>
+                        <!--
+                        <img src="http://naimobile.nationalamusements.com/imgs/rpt_page.png" alt="Empty" border="0" height="84" width="65">
+                        -->
+                    </td>
+                    <td>
+                        <a href="#frame_ReelTime" >
+                            <img src="http://naimobile.nationalamusements.com/imgs/ncr_logo.jpg" alt="Reel Time" border="0" height="90" width="90"></a>
+                    </td>
+                </tr>
+				<!--
+                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr>
+                    <td width="33%"><img src="http://naimobile.nationalamusements.com/imgs/rpt_page.png" alt="Empty" border="0" height="84" width="65"></td>
+                    <td width="33%"><img src="http://naimobile.nationalamusements.com/imgs/rpt_page.png" alt="Empty" border="0" height="84" width="65"></td>
+                    <td width="33%"><img src="http://naimobile.nationalamusements.com/imgs/rpt_page.png" alt="Empty" border="0" height="84" width="65"></td>
+                </tr>
+                -->
+                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr>
+                    <td colspan="3">
+                        
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppLifeUS" class="report_title">Smartphone App  - Lifetime Box Office (USA)</a>
+                                </div>
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppDailyUS" class="report_title">Smartphone App  - Daily Box Office (USA)</a>
+                                </div>
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppCnLifeUS" class="report_title">Smartphone App  - Lifetime Concessions (USA)</a>
+                                </div>
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppCnDailyUS" class="report_title">Smartphone App  - Daily Concessions (USA)</a>
+                                </div>
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppLifeUK" class="report_title">Smartphone App  - Lifetime Box Office (UK)</a>
+                                </div>
+                                <div class="swiper-slide all-slide" >
+                                    <br/><br/>
+                                    <a href="#rpt_PhoneAppDailyUK" class="report_title">Smartphone App  - Daily Box Office (UK)</a>
+                                </div>
+                                <div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="#rpt_TP" class="report_title">Daily TP Recap Report</a>
+                                </div>
+                                <div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="#rpt_OpsDailyComp" class="report_title">Operations Daily Comparison (All Circuits)</a>
+                                </div>
+                                <div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="#rpt_TapAndPayDaily" class="report_title">Tap and Pay Daily Report (UK)</a>
+                                </div>
+                                <div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="#rpt_TapAndPayLife" class="report_title">Tap and Pay Cumulative Report (UK)</a>
+                                </div>
+                                <!--
+								<div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="http://naimobile.nationalamusements.com/reports/UK-PhoneAppDaily.pdf" class="report_title">Test PDF</a>
+                                </div>
+								-->
+								<!-- <div class="swiper-slide all-slide">
+                                    <br/><br/>
+                                    <a href="http://install.diawi.com/D7Sgki" class="report_title">Update App</a>
+                                    <a href="http://install.diawi.com/D7Sgki" class="report_title">Update App</a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="pagination"></div>
+                        </div>
+                                  
+                    </td>
+                </tr>
+                <tr><td colspan="3">&nbsp;</td></tr>
+                <!--<tr><td colspan="3"><a href="javascript:history.go(0)" data-role="button" data-icon="refresh" data-inline=true data-mini=true>Refresh</a></td></tr>-->
+                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr><td colspan="3" class="spacer">&nbsp;</td></tr>
+                <tr><td colspan="3" class="spacer_small">&nbsp;</td></tr>
+            </table>
+                        
+        </div>
+
+        <script src="js/jquery-1.10.1.min.js"></script>
+        <script src="js/idangerous.swiper-2.1.min.js"></script>
+        <script>
+            var mySwiper = new Swiper('.swiper-container',{
+                pagination: '.pagination',
+                paginationClickable: true,
+                freeMode: true,
+                freeModeFluid: true
+            });
+        </script>        
+        
+    </div>  
+    <!-- END PAGE -  INDEX  -->
+    
+
+    <!-- RPT PAGE - PHONE APP - USA LIFETIME -->
+     <div data-role="page" id="rpt_PhoneAppLifeUS" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+		   //$('#header [data-rel="back"]').append('<div class="ios-tip"><span>&nbsp;</span></div>');
+           var uriRpt = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/bo_usa_life';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriRpt)
+                        .done(function (data) {
+                            // On success
+                            var life = '<table border=0>';
+                            //life = life + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //life = life + '<tr><td> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td><td colspan=4></td></tr>';
+                            //life = life + '<tr><td align=left> <a href=#indexPage data-role=button data-icon=home data-mini=true data-inline=true data-theme=a>Home</a></td>';
+							//life = life + '<td colspan=4 ><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=185 height=19></td></tr>';
+							//life = life + '<tr><td colspan=5>&nbsp;</td></tr>';
+							life = life + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							life = life + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            life = life + '<tr><th colspan=5>Smartphone App - Box Office - (USA) - Lifetime <br/> (Since 5/20/2013)</th></tr>';
+                            life = life + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            life = life + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Qty</th><th class=totals>Tix Cost</th><th class=totals>Surcharge</th><th class=totals>Total Amount</th></tr>';
+                            var tot_qty = 0;
+                            var tot_cost = 0;
+                            var tot_charge = 0;
+                            var tot_amt = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                life = life + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td><td class=data_row>' + item.surcharge.toFixed(2) + '</td><td class=data_row>' + item.amount.toFixed(2) + '</td></tr>';
+                                tot_qty = tot_qty + item.qty;
+                                tot_cost = tot_cost + item.cost;
+                                tot_charge = tot_charge + item.surcharge;
+                                tot_amt = tot_amt + item.amount;
+                            });
+                            life = life + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            life = life + '<tr><td align=left>TOTALS :</td><td class=totals>' + tot_qty + '</td><td class=totals>' + tot_cost.toFixed(2) + '</td><td class=totals>' + tot_charge.toFixed(2) + '</td><td class=totals>' + tot_amt.toFixed(2) + '</td></tr>';
+                            life = life + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            life = life + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            //life = life + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            life = life + '<tr><td colspan=5 class=spacer>&nbsp;</td></tr>';
+                            life = life + '</table>';
+                            document.getElementById("life_data").innerHTML = life;
+                        });
+                });
+
+        </script>
+    
+		<!--
+        <div data-role="header" data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="life_data">  </div>    
+        </div>
+     
+         
+        
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - PHONE APP - USA LIFETIME -->
+    
+
+    <!-- RPT PAGE - PHONE APP - USA DAILY  -->
+    <div data-role="page" id="rpt_PhoneAppDailyUS" data-theme="a">
+        
+         <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriRptDaily = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/bo_usa_daily';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriRptDaily)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var daily = '<table border=0>';
+                            //daily = daily + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //daily = daily + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //daily = daily + '<tr><td colspan=5>&nbsp;</td></tr>';
+							daily = daily + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							daily = daily + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            daily = daily + '<tr><th colspan=5>Smartphone App - Box Office - (USA) - Daily</th></tr>';
+                            daily = daily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            daily = daily + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Qty</th><th class=totals>Tix Cost</th><th class=totals>Surcharge</th><th class=totals>Total Amount</th></tr>';
+                            var tot_qty = 0;
+                            var tot_cost = 0;
+                            var tot_charge = 0;
+                            var tot_amt = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                daily = daily + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td><td class=data_row>' + item.surcharge.toFixed(2) + '</td><td class=data_row>' + item.amount.toFixed(2) + '</td></tr>';
+                                tot_qty = tot_qty + item.qty;
+                                tot_cost = tot_cost + item.cost;
+                                tot_charge = tot_charge + item.surcharge;
+                                tot_amt = tot_amt + item.amount;
+                            });
+                            daily = daily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            daily = daily + '<tr><td align=left>Totals :</td><td class=totals>' + tot_qty + '</td><td class=totals>' + tot_cost.toFixed(2) + '</td><td class=totals>' + tot_charge.toFixed(2) + '</td><td class=totals>' + tot_amt.toFixed(2) + '</td></tr>';
+                            daily = daily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            daily = daily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            //daily = daily + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            daily = daily + '<tr><td colspan=5 class=spacer>&nbsp;</td></tr>';
+                            daily = daily + '</table>';
+                            document.getElementById("daily_data").innerHTML = daily;
+                        });
+                });
+
+        </script>
+    
+		<!--
+        <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="daily_data">  </div>    
+        </div>
+    </div>
+    <!-- END PAGE - RPT PAGE - PHONE APP - USA DAILY -->
+    
+    <!-- RPT PAGE - PHONE APP - UK LIFETIME -->
+     <div data-role="page" id="rpt_PhoneAppLifeUK" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriUKLifeRpt = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/bo_uk_life';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriUKLifeRpt)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var uklife = '<table border=0>';
+                            //uklife = uklife + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //uklife = uklife + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //uklife = uklife + '<tr><td colspan=5>&nbsp;</td></tr>';
+							uklife = uklife + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							uklife = uklife + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            uklife = uklife + '<tr><th colspan=5>Smartphone App - Box Office - (UK) - Lifetime <br/> (Since 11/4/2014)</th></tr>';
+                            uklife = uklife + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            uklife = uklife + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Qty</th><th class=totals>Tix Cost</th><th class=totals>Surcharge</th><th class=totals>Total Amount</th></tr>';
+                            var uk_tot_qty = 0;
+                            var uk_tot_cost = 0;
+                            var uk_tot_charge = 0;
+                            var uk_tot_amt = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                uklife = uklife + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td><td class=data_row>' + item.surcharge.toFixed(2) + '</td><td class=data_row>' + item.amount.toFixed(2) + '</td></tr>';
+                                uk_tot_qty = uk_tot_qty + item.qty;
+                                uk_tot_cost = uk_tot_cost + item.cost;
+                                uk_tot_charge = uk_tot_charge + item.surcharge;
+                                uk_tot_amt = uk_tot_amt + item.amount;
+                            });
+                            uklife = uklife + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            uklife = uklife + '<tr><td align=left>TOTALS :</td><td class=totals>' + uk_tot_qty + '</td><td class=totals>' + uk_tot_cost.toFixed(2) + '</td><td class=totals>' + uk_tot_charge.toFixed(2) + '</td><td class=totals>' + uk_tot_amt.toFixed(2) + '</td></tr>';
+                            uklife = uklife + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            uklife = uklife + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            uklife = uklife + '<tr><td colspan=5 class=spacer>&nbsp;</td></tr>';
+                            uklife = uklife + '</table>';
+                            document.getElementById("uk_life_data").innerHTML = uklife;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="uk_life_data">  </div>    
+        </div>
+     
+    </div>    
+	<!-- END PAGE  -  RPT PAGE - PHONE APP - UK LIFETIME -->
+
+
+    <!-- RPT PAGE - PHONE APP - UK DAILY  -->
+    <div data-role="page" id="rpt_PhoneAppDailyUK" data-theme="a">
+        
+         <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriRptUKDaily = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/bo_uk_daily';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriRptUKDaily)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var ukdaily = '<table border=0>';
+                            //ukdaily = ukdaily + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //ukdaily = ukdaily + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //ukdaily = ukdaily + '<tr><td colspan=5>&nbsp;</td></tr>';
+							ukdaily = ukdaily + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							ukdaily = ukdaily + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            ukdaily = ukdaily + '<tr><th colspan=5>Smartphone App - Box Office - (UK) - Daily</th></tr>';
+                            ukdaily = ukdaily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            ukdaily = ukdaily + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Qty</th><th class=totals>Tix Cost</th><th class=totals>Surcharge</th><th class=totals>Total Amount</th></tr>';
+                            var ukdaily_tot_qty = 0;
+                            var ukdaily_tot_cost = 0;
+                            var ukdaily_tot_charge = 0;
+                            var ukdaily_tot_amt = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                ukdaily = ukdaily + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td><td class=data_row>' + item.surcharge.toFixed(2) + '</td><td class=data_row>' + item.amount.toFixed(2) + '</td></tr>';
+                                ukdaily_tot_qty = ukdaily_tot_qty + item.qty;
+                                ukdaily_tot_cost = ukdaily_tot_cost + item.cost;
+                                ukdaily_tot_charge = ukdaily_tot_charge + item.surcharge;
+                                ukdaily_tot_amt = ukdaily_tot_amt + item.amount;
+                            });
+                            ukdaily = ukdaily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            ukdaily = ukdaily + '<tr><td align=left>Totals :</td><td class=totals>' + ukdaily_tot_qty + '</td><td class=totals>' + ukdaily_tot_cost.toFixed(2) + '</td><td class=totals>' + ukdaily_tot_charge.toFixed(2) + '</td><td class=totals>' + ukdaily_tot_amt.toFixed(2) + '</td></tr>';
+                            ukdaily = ukdaily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            ukdaily = ukdaily + '<tr><td colspan=5>&nbsp;</td></tr>';
+                            //daily = daily + '<tr><td colspan=5> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            ukdaily = ukdaily + '<tr><td colspan=5 class=spacer>&nbsp;</td></tr>';
+                            ukdaily = ukdaily + '</table>';
+                            document.getElementById("uk_daily_data").innerHTML = ukdaily;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="uk_daily_data">  </div>    
+        </div>
+    </div>
+    <!-- END PAGE - RPT PAGE - PHONE APP - UK DAILY -->
+
+	
+  <!-- RPT PAGE - PHONE APP - CONCESSIONS USA LIFETIME -->
+     <div data-role="page" id="rpt_PhoneAppCnLifeUS" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriRptCNLife = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/cn_usa_life';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriRptCNLife)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var cnlife = '<table border=0>';
+                            //cnlife = cnlife + '<tr><td colspan=3><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //cnlife = cnlife + '<tr><td colspan=3> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //cnlife = cnlife + '<tr><td colspan=3>&nbsp;</td></tr>';
+							cnlife = cnlife + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							cnlife = cnlife + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            cnlife = cnlife + '<tr><th colspan=3>Smartphone App - Concessions - (USA) - Lifetime <br/> (Since 12/13/2013)</th></tr>';
+                            cnlife = cnlife + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            cnlife = cnlife + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Item Qty</th><th class=totals>Item Cost</th></tr>';
+                            var tot_qty = 0;
+                            var tot_cost = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                cnlife = cnlife + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td></tr>';
+                                tot_qty = tot_qty + item.qty;
+                                tot_cost = tot_cost + item.cost;
+                            });
+                            cnlife = cnlife + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            cnlife = cnlife + '<tr><td align=left>TOTALS :</td><td class=totals>' + tot_qty + '</td><td class=totals>' + tot_cost.toFixed(2) + '</td></tr>';
+                            cnlife = cnlife + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            //cnlife = cnlife + '<tr><td colspan=3> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            cnlife = cnlife + '<tr><td colspan=3 class=spacer_medium>&nbsp;</td></tr>';
+                            cnlife = cnlife + '</table>';
+                            document.getElementById("cn_life_data").innerHTML = cnlife;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="cn_life_data">  </div>    
+        </div>
+             
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - PHONE APP - CONCESSIONS USA LIFETIME -->
+    
+    
+  <!-- RPT PAGE - PHONE APP - CONCESSIONS  USA DAILY -->
+     <div data-role="page" id="rpt_PhoneAppCnDailyUS" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriRptCNDaily = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_PhoneApp/api/cn_usa_daily';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriRptCNDaily)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var cn = '<table border=0>';
+                            //cn = cn + '<tr><td colspan=3><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //cn = cn + '<tr><td colspan=3> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //cn = cn + '<tr><td colspan=3>&nbsp;</td></tr>';
+							cn = cn + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							cn = cn + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+							cn = cn + '<tr><th colspan=3>Smartphone App - Concessions - (USA) - Daily</th></tr>';
+                            cn = cn + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            cn = cn + '<tr><th class=totals_center>Theatre Name</th><th class=totals>Item Qty</th><th class=totals>Item Cost</th></tr>';
+                            var tot_qty = 0;
+                            var tot_cost = 0;
+                            $.each(data, function (key, item) {
+                                //$('<li>', { text: item.unit_name }).appendTo($('#life_data'));
+                                cn = cn + '<tr><td align=left class=data_name>' + item.unit_name + '</td><td class=data_row>' + item.qty + '</td><td class=data_row>' + item.cost.toFixed(2) + '</td></tr>';
+                                tot_qty = tot_qty + item.qty;
+                                tot_cost = tot_cost + item.cost;
+                            });
+                            cn = cn + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            cn = cn + '<tr><td align=left>TOTALS :</td><td class=totals>' + tot_qty + '</td><td class=totals>' + tot_cost.toFixed(2) + '</td></tr>';
+                            cn = cn + '<tr><td colspan=3>&nbsp;</td></tr>';
+                            //cn = cn + '<tr><td colspan=3> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            cn = cn + '<tr><td colspan=3 class=spacer_medium>&nbsp;</td></tr>';
+                            cn = cn + '</table>';
+                            document.getElementById("cn_daily_data").innerHTML = cn;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="cn_daily_data">  </div>    
+        </div>
+             
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - PHONE APP - CONCESSIONS USA DAILY -->
+
+    
+    <!-- RPT PAGE - OPERATIONS DAILY COMPARISON -->
+     <div data-role="page" id="rpt_OpsDailyComp" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriOps = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_OpsComp/api/ops_daily_comp';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriOps)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var ops = '<table border=0 class=ops_rpt_table>';
+                            //ops = ops + '<tr><td colspan=4><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //ops = ops + '<tr><td colspan=4> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //ops = ops + '<tr><td colspan=4>&nbsp;</td></tr>';
+							ops = ops + '<tr><td colspan=5><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							ops = ops + '<tr><td colspan=5 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            ops = ops + '<tr><th colspan=4>Operations Daily Comparison</th></tr>';
+                            ops = ops  + '<tr><td colspan=4>&nbsp;</td></tr>';
+                            $.each(data, function (key, item) {
+                                ops = ops +  item.data_row;
+                            });
+                            ops = ops  + '<tr><td colspan=4>&nbsp;</td></tr>';
+                            ops = ops + '<tr><td colspan=4>&nbsp;</td></tr>';
+                            //ops = ops + '<tr><td colspan=4> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            ops = ops + '<tr><td colspan=4 class=spacer>&nbsp;</td></tr>';
+                            ops = ops  + '</table>';
+                            document.getElementById("ops_comp").innerHTML = ops;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="ops_comp">  </div>    
+        </div>
+             
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - OPERATIONS DAILY COMPARISON -->
+    
+    
+      <!-- RPT PAGE - TAP AND PAY DAILY  -->
+     <div data-role="page" id="rpt_TapAndPayDaily" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriTAPDaily = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_TapPay/api/tappay_dailyUK';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriTAPDaily)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var tap_daily = '<table border=0 class=ops_rpt_table>';
+                            //tap_daily = tap_daily + '<tr><td colspan=6><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //tap_daily = tap_daily + '<tr><td colspan=6> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //tap_daily = tap_daily + '<tr><td colspan=6>&nbsp;</td></tr>';
+							tap_daily = tap_daily + '<tr><td colspan=6><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							tap_daily = tap_daily + '<tr><td colspan=6 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+							tap_daily = tap_daily + '<tr><th colspan=6>Settled Tap and Pay Report</th></tr>';
+                            $.each(data, function (key, item) {
+                                tap_daily = tap_daily +  item.data_value;
+                            });
+                            tap_daily = tap_daily  + '<tr><td colspan=6>&nbsp;</td></tr>';
+                            tap_daily = tap_daily + '<tr><td colspan=6>&nbsp;</td></tr>';
+                            //tap_daily = tap_daily + '<tr><td colspan=6> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            tap_daily = tap_daily + '<tr><td colspan=6 class=spacer>&nbsp;</td></tr>';
+                            tap_daily = tap_daily  + '</table>';
+                            document.getElementById("tappay_daily").innerHTML = tap_daily;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="tappay_daily">  </div>    
+        </div>
+             
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - TAP AND PAY DAILY -->
+    
+    
+      <!-- RPT PAGE - TAP AND PAY LIFETIME  -->
+     <div data-role="page" id="rpt_TapAndPayLife" data-theme="a">
+         
+        <script type="text/javascript">
+           //  RETRIEVE REPORT DATA
+           var uriTAPLife = 'http://naimobile.nationalamusements.com/DashAPI_Rpt_TapPay/api/tappay_lifeUK';
+               $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriTAPLife)
+                        .done(function (data) {
+                            // On success, 'data' contains a list of products.
+                            var tap_life = '<table border=0 class=ops_rpt_table>';
+                            //tap_life = tap_life + '<tr><td colspan=6><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19></h1> </td></tr>';     
+                            //tap_life = tap_life + '<tr><td colspan=6> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            //tap_life = tap_life + '<tr><td colspan=6>&nbsp;</td></tr>';
+							tap_life = tap_life + '<tr><td colspan=6><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>';
+							tap_life = tap_life + '<tr><td colspan=6 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>';
+                            tap_life = tap_life + '<tr><th colspan=6>Settled Tap and Pay Cumulative Report</th></tr>';
+                            tap_life = tap_life  + '<tr><td colspan=6>&nbsp;</td></tr>';
+                            $.each(data, function (key, item) {
+                                tap_life = tap_life +  item.data_value;
+                            });
+                            tap_life = tap_life  + '<tr><td colspan=6>&nbsp;</td></tr>';
+                            tap_life = tap_life + '<tr><td colspan=6>&nbsp;</td></tr>';
+                            //tap_life = tap_life + '<tr><td colspan=6> <a href=#indexPage data-role=button data-icon=home data-mini=true  data-theme=a>Home</a></td></tr>';
+                            tap_life = tap_life + '<tr><td colspan=6 class=spacer>&nbsp;</td></tr>';
+                            tap_life = tap_life  + '</table>';
+                            document.getElementById("tappay_life").innerHTML = tap_life;
+                        });
+                });
+
+        </script>
+    
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+		
+        <div>
+            <div id="tappay_life">  </div>    
+        </div>
+             
+    </div>    
+    <!-- END PAGE  -  RPT PAGE - TAP AND PAY LIFETIME -->
+    
+    
+    <!--  TP RECAP REPORT -->
+    <div data-role="page" id="rpt_TP" data-theme="a">
+        <script type="text/javascript">
+            var uri = 'http://naimobile.nationalamusements.com:81/';
+            
+            var uriHead = uri + 'api/tpheader';
+               // var uriHead = uri + '';
+                    $(document).ready(function () {
+                    // Send an AJAX request
+                    $.getJSON(uriHead)
+                        .done(function (data) {
+                            $.each(data, function (key, item) {
+                                document.getElementById("business_date").innerHTML = item.bus_date;
+                                document.getElementById("initial_missing").innerHTML = item.missing;
+                                document.getElementById("dist_time").innerHTML = item.dist_time;
+                                document.getElementById("recollected").innerHTML = item.recollected;
+                                document.getElementById("comments").innerHTML = item.comments;
+                            });
+                        });
+                    });
+
+
+                    //  RETRIEVE DATA FOR SOUTH AMERICA CIRCUIT
+                    var uriSA = uri + 'api/tplogs_sa';
+                    $(document).ready(function () {
+                        // Send an AJAX request
+                        $.getJSON(uriSA)
+                            .done(function (data) {
+                                // On success, 'data' contains a list of products.
+                                var sa = '<table border=0>';
+                                sa = sa + '<tr><th>Theatre Name</th><th>FTP</th><th>Email</th><th>Current Status</th></tr>';
+                                $.each(data, function (key, item) {
+                                    //$('<li>', { text: item.theatre }).appendTo($('#sa_data'));
+                                    sa = sa + '<tr><td>' + item.theatre + '</td><td>' + item.ftp + '</td><td>' + item.email + '</td><td>' + item.status + '</td></tr>';
+                                });
+                                sa = sa + '</table>';
+                                document.getElementById("sa_data").innerHTML = sa;
+                            });
+                    });
+
+
+                    //  RETRIEVE DATA FOR UK CIRCUIT
+                    var uriUK = uri + 'api/tplogs_uk';
+                    $(document).ready(function () {
+                        $.getJSON(uriUK)
+                            .done(function (data) {
+                                var uk = '<table border=0>';
+                                uk = uk + '<tr><th>Theatre Name</th><th>Problem</th><th>Current Status</th></tr>';
+                                $.each(data, function (key, item) {
+                                    uk = uk + '<tr><td>' + item.theatre + '</td><td>' + item.problem + '</td><td>' + item.status + '</td></tr>' ;
+                                });
+                                uk = uk + '</table>';
+                                document.getElementById("uk_data").innerHTML = uk;
+                            });
+                    });
+
+
+                    //  RETRIEVE DATA FOR USA CIRCUIT
+                    var uriUSA = uri + 'api/tplogs_usa';
+                    $(document).ready(function () {
+                        $.getJSON(uriUSA)
+                            .done(function (data) {
+                                var usa = '<table border=0>';
+                                usa= usa + '<tr><th>Theatre Name</th><th>Problem</th><th>Current Status</th></tr>';
+                                $.each(data, function (key, item) {
+                                    usa = usa + '<tr><td>' + item.theatre + '</td><td>' + item.problem + '</td><td>' + item.status + '</td></tr>';
+                                });
+                                usa = usa + '</table>';
+                                document.getElementById("usa_data").innerHTML = usa;
+                            });
+                    });
+
+        </script>
+          
+		<!--
+	    <div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>
+		-->
+
+        <div>
+            <table align="center">        
+               <!--
+			   <tr><td colspan="2" align="center"><h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="266" height="19"></h1> </td></tr>     
+               <tr><td colspan="2"><a href="#indexPage" data-role="button" data-icon="home" data-mini="true" data-theme="a">Home</a></td></tr>
+               -->
+				<tr><td colspan=2><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>
+				<tr><td colspan=2 class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>
+			    <tr><td colspan="2">&nbsp;</td></tr>                               
+                <tr><td colspan="2" align="center"><h3>Daily TP Recap Report</h3></td></tr>
+                <tr><td><label>Business Date :</label></td><td><label id="business_date" class="data_label"></label></td></tr>
+                <tr><td><label>Initial Missing :</label> </td><td><label id="initial_missing" class="data_label"></label></td></tr>
+                <tr><td><label>Distribution Time :</label></td><td><label id="dist_time" class="data_label"></label></td></tr>
+                <tr><td><label>Recollected :</label></td><td><label id="recollected" class="data_label"></label></td></tr>
+                <tr><td><label>Comments :</label></td><td><label id="comments" class="data_label"></label></td></tr>
+                <tr><td width="40%">&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td colspan="2" align="center"><h3>South American Summary</h3></td></tr>
+                <tr><td colspan="2"><div id="sa_data" class="data_label"></div></td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr><td colspan="2" align="center"><h3>UK Summary</h3></td></tr>
+                <tr><td colspan="2"><div id="uk_data" class="data_label"></div></td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr><td colspan="2" align="center"><h3>USA Summary</h3></td></tr>
+                <tr><td colspan="2"><div id="usa_data" class="data_label"></div></td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <!--<tr><td colspan="2"><a href="#indexPage" data-role="button" data-icon="home" data-mini="true" data-theme="a">Home</a></td></tr>-->
+                <tr><td colspan="2" class="spacer">&nbsp;</td></tr>
+            </table>
+
+        </div>
+
+    </div>   
+    <!--  END PAGE - TP RECAP REPORT -->
+    
+    
+    <!--  REELTIME PAGE -->
+    <div data-role="page" id="frame_ReelTime" data-theme="a">
+        <!--<div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="120" height="19"></h1> 
+        </div>-->
+
+        <div>
+            <table align="center">
+                <!--
+				<tr><td><h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="266" height="19"></h1> </td></tr>     
+                <tr><td><a href="#indexPage" data-role="button" data-icon="home" data-mini="true" data-theme="a">Home</a></td></tr>
+				-->
+				<tr><td><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>
+				<tr><td class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>
+                <tr><td>&nbsp;</td></tr>                
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td>
+                        <iframe src="http://reeltime.ncrwebhost.com/"  width="650"  height="650" align="left" frameborder="0" allowtransparency="true"></iframe>
+                    </td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td class="spacer">&nbsp;</td></tr>
+            </table>             
+        </div>
+        
+    </div>    
+    <!--  END OF REELTIME PAGE -->
+    
+    
+    <!-- UNDER CONSTRUCTION PAGE -->
+    <div data-role="page" id="underCons" data-theme="a">
+		<!--
+		<div data-role="header"  data-theme="a">
+            <h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="140" height="19"></h1> 
+        </div>		
+		-->
+        <div>
+            <table align="center">
+                <!--
+				<tr><td><h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="266" height="19"></h1> </td></tr>     
+                <tr><td><a href="#indexPage" data-role="button" data-icon="home" data-mini="true" data-theme="a">Home</a></td></tr>
+                -->
+				<tr><td><h1><img src=http://naimobile.nationalamusements.com/imgs/showcase_logo.png  width=266 height=19 ></h1></td></tr>
+				<tr><td class=data_name><a href=#indexPage ><img src=http://naimobile.nationalamusements.com/imgs/home.png  width=70 height=30></a></td></tr>
+				<tr><td>&nbsp;</td></tr>                
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td><img src="http://naimobile.nationalamusements.com/imgs/page_under_construction.png" alt="" height="200" width="300"></td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td class="spacer">&nbsp;</td></tr>
+            </table>             
+        </div>
+     
+    </div>    
+    <!-- END PAGE  -  UNDER CONSTRUCTION -->
+     
+ 
+    <!--  UPDATE PAGE -->
+    <div data-role="page" id="rpt_Update" data-theme="a">
+        <div>
+            <table align="center">
+                <tr><td ><h1><img src="http://naimobile.nationalamusements.com/imgs/showcase_logo.png" alt=""   width="266" height="19"></h1> </td></tr>     
+                <tr><td><a href="#indexPage" data-role="button" data-icon="home" data-mini="true" data-theme="a">Home</a></td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td align="center">
+                        <iframe src="http://install.diawi.com/D7Sgki"  width="500"  height="925" align="left" frameborder="0" allowtransparency="true"></iframe>
+                    </td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td class="spacer">&nbsp;</td></tr>
+            </table>             
+        </div>
+        
+    </div>          
+    <!--  END OF UPDATE PAGE -->
+    
+    
+</body>
+
+</html>

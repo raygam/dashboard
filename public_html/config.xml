@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns = "http://www.w3.org/ns/widgets"
+                xmlns:gap = "http://phonegap.com/ns/1.0"
+                id = "com.national-amusements.Dashboard"
+                version = "2.1.6">
+
+    <name>Showcase Dashboard</name>
+    <description></description>
+    <!--<author href="" email="rgambardella@national-amusements.com">NAI</author>-->
+    
+    <!-- Customize your app and platform with the preference element. -->
+    <preference name="phonegap-version" value="3.2.0" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="ios-statusbarstyle" value="black-translucent" />
+    <preference name="exit-on-suspend" value="true" />
+    <preference name="fullscreen" value="false" />
+    
+    
+    <!-- Define app icon MAIN ROOT Platform. -->
+    <icon src="icon.png" />
+    
+    <!-- Define app icon ANDROID Platform. -->
+    <icon src="icons/android/icon-36.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="icons/android/icon-48.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="icons/android/icon-72.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="icons/android/icon-96.png" gap:platform="android" gap:density="xhdpi" />
+        
+    <!-- Define app icon IOS Platform. -->
+    <icon src="icons/ios/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
+
+    <!-- Define app icon MAIN ROOT Platform. -->
+    <gap:splash src="splash.png" />
+
+    <!-- Define app splash screen for ANDROID platform. -->
+    <gap:splash src="splash/android/screen-mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+
+    <!-- Define app splash screen for IOS platform. -->
+    <gap:splash src="splash/ios/Default.png" width="320" height="480" />
+    <gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+    <gap:splash src="splash/ios/Default_iphone5.png" width="640" height="1136" />
+    <gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+    <gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+    <gap:splash src="splash/ios/Default-Landscape_at_2x.png" width="2048" height="1496" />
+    <gap:splash src="splash/ios/Default-Portrait_at_2x.png" width="1536" height="2008" />
+    
+    <accesss origin="*" />
+
+    <!--  Plug-ins  -->
+    <!--<gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" />-->
+    
+    
+</widget>

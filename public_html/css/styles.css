@@ -1,0 +1,188 @@
+/*
+        3/10/2014               RG
+
+        CSS for Showcase Dashboard app
+*/
+
+.ios-tip {
+	float: left;
+	left: -9px;
+	top: 4px;
+	position: absolute;
+	-webkit-transform: scale(.7, 1.0);
+	}
+
+
+page{
+    background-color: black;
+}
+
+body
+{
+    //background-image: url('images/splash640x1136.png');
+    background-color: black;
+}
+
+label
+{
+    color:white;
+    font-weight: bold;
+}
+
+table
+{ 
+    border-width:0px;
+    border-style: solid;
+    width:100%;
+    alignment-adjust: central;
+    //background-color: darkgray;
+    background-color: black;
+}
+
+th
+{
+    column-width: 25%;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    font-size:  small;
+}
+
+td
+{
+    vertical-align: top;  
+    text-align: center;
+    //height: 25px;
+    font-weight: normal;    
+    font-size:  x-small;
+}
+
+.spacer
+{
+    vertical-align: top;  
+    text-align: center;
+    height: 350px;
+    font-weight: normal;    
+    font-size:  x-small;
+}
+
+.spacer_small
+{
+    vertical-align: top;  
+    text-align: center;
+    height: 200px;
+    font-weight: normal;    
+    font-size:  x-small;
+}
+
+.spacer_medium
+{
+    vertical-align: top;  
+    text-align: center;
+    height: 500px;
+    font-weight: normal;    
+    font-size:  x-small;
+}
+
+.spacer_big
+{
+    vertical-align: top;  
+    text-align: center;
+    height: 750px;
+    font-weight: normal;    
+    font-size:  x-small;
+}
+
+.data_name
+{
+    vertical-align: top;  
+    text-align: left;
+    //height: 25px;
+    font-weight: normal;  
+    font-size:  xx-small;
+    font-family: "Verdana";
+}
+
+.data_row
+{
+    vertical-align: top;  
+    text-align: right;
+    //height: 25px;
+    font-weight: normal;  
+    font-size:  x-small;
+    font-family: "Verdana";
+}
+
+.totals
+{
+    vertical-align: top;  
+    text-align: right;
+    //height: 25px;
+    font-weight: bold;  
+    font-size:  x-small;
+    font-family: "Verdana";
+}
+
+.totals_center
+{
+    vertical-align: top;  
+    text-align: center;
+    //height: 25px;
+    font-weight: bold;  
+    font-size:  x-small;
+    font-family: "Verdana";
+}
+
+.totals_left
+{
+    vertical-align: top;  
+    text-align: left;
+    //height: 25px;
+    font-weight: bold;  
+    font-size:  x-small;
+    font-family: "Verdana";
+}
+
+.label{
+    color:white;
+    font-weight: normal;    
+    font-size:  small;    
+}
+
+.data_label
+{
+    color:white;
+    font-weight: normal;    
+    font-size:  x-small;
+    text-align: left;
+    font-family: "Verdana";
+}
+
+h3
+{
+    color:white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.report_title
+{
+    color:white;
+    font-weight: bold;
+    font-size:  medium;    
+}
+
+.back{
+    background-color: black;
+}
+
+.ops_rpt_table
+{ 
+    border-width:0px;
+    border-style: solid;
+    width:100%;
+    alignment-adjust: central;
+}
+
+//
+//

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+        1/15/2014               RG
+
+        HTML code for first attempt at a phone app.
+
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Showcase Cinemas</title>
+    <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+    
+</head>
+
+<body>
+    
+    <script type="text/javascript">
+     var uri = 'http://naimobile.nationalamusements.com:81/';
+     // var uri = 'http://naitest2.nai.com:81/';
+
+       var uriHead = uri + 'api/tpheader';
+       // var uriHead = uri + '';
+            $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(uriHead)
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        document.getElementById("business_date").innerHTML = item.bus_date;
+                        document.getElementById("initial_missing").innerHTML = item.missing;
+                        document.getElementById("dist_time").innerHTML = item.dist_time;
+                        document.getElementById("recollected").innerHTML = item.recollected;
+                        document.getElementById("comments").innerHTML = item.comments;
+                    });
+                });
+            });
+            
+
+            //  RETRIEVE DATA FOR SOUTH AMERICA CIRCUIT
+            var uriSA = uri + 'api/tplogs_sa';
+            $(document).ready(function () {
+                // Send an AJAX request
+                $.getJSON(uriSA)
+                    .done(function (data) {
+                        // On success, 'data' contains a list of products.
+                        var sa = '<table border=0>';
+                        sa = sa + '<tr><th>Theatre Name</th><th>FTP</th><th>Email</th><th>Current Status</th></tr>';
+                        $.each(data, function (key, item) {
+                            //$('<li>', { text: item.theatre }).appendTo($('#sa_data'));
+                            sa = sa + '<tr><td>' + item.theatre + '</td><td>' + item.ftp + '</td><td>' + item.email + '</td><td>' + item.status + '</td></tr>';
+                        });
+                        sa = sa + '</table>';
+                        document.getElementById("sa_data").innerHTML = sa;
+                    });
+            });
+
+
+            //  RETRIEVE DATA FOR UK CIRCUIT
+            var uriUK = uri + 'api/tplogs_uk';
+            $(document).ready(function () {
+                $.getJSON(uriUK)
+                    .done(function (data) {
+                        var uk = '<table border=0>';
+                        uk = uk + '<tr><th>Theatre Name</th><th>Problem</th><th>Current Status</th></tr>';
+                        $.each(data, function (key, item) {
+                            uk = uk + '<tr><td>' + item.theatre + '</td><td>' + item.problem + '</td><td>' + item.status + '</td></tr>' ;
+                        });
+                        uk = uk + '</table>';
+                        document.getElementById("uk_data").innerHTML = uk;
+                    });
+            });
+
+
+            //  RETRIEVE DATA FOR USA CIRCUIT
+            var uriUSA = uri + 'api/tplogs_usa';
+            $(document).ready(function () {
+                $.getJSON(uriUSA)
+                    .done(function (data) {
+                        var usa = '<table border=0>';
+                        usa= usa + '<tr><th>Theatre Name</th><th>Problem</th><th>Current Status</th></tr>';
+                        $.each(data, function (key, item) {
+                            usa = usa + '<tr><td>' + item.theatre + '</td><td>' + item.problem + '</td><td>' + item.status + '</td></tr>';
+                        });
+                        usa = usa + '</table>';
+                        document.getElementById("usa_data").innerHTML = usa;
+                    });
+            });
+
+    </script>
+
+    <div data-role="page" id="indexPage" data-theme="b">
+        
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <h1>Daily TP Recap Report</h1> 
+            <a href="javascript:history.go(0)">Refresh</a>
+        </div>
+
+        <div>
+            <!--<a href="javascript:history.go(0)">Refresh</a>-->
+            <table>
+                <tr><td width="40%">&nbsp;</td><td>&nbsp;</td></tr>
+                <tr><td><label>Business Date :</label></td><td><label id="business_date" class="data_label"></label></td></tr>
+                <tr><td><label>Initial Missing :</label> </td><td><label id="initial_missing" class="data_label"></label></td></tr>
+                <tr><td><label>Distribution Time :</label></td><td><label id="dist_time" class="data_label"></label></td></tr>
+                <tr><td><label>Recollected :</label></td><td><label id="recollected" class="data_label"></label></td></tr>
+                <tr><td><label>Comments :</label></td><td><label id="comments" class="data_label"></label></td></tr>
+            </table>
+        </div>
+
+        <br /><br />
+
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>South American Summary</h3>            
+            <div id="sa_data">  </div>
+        </div>
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>UK Summary</h3>
+            <div id="uk_data">  </div>
+        </div>
+        <div data-role="collapsible" data-collapsed="true">
+            <h3>USA Summary</h3>
+            <div id="usa_data">  </div>
+        </div>
+
+     </div>   
+
+</body>
+
+</html>

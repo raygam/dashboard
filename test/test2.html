@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Showcase</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+
+</head>
+<body>
+
+<!-- begin first page -->
+<section id="new" data-role="page">
+<header data-role="header" data-position="fullscreen"><h1>Showcase  - Field Services</h1></header>
+<div data-role="content" class="content" >
+<p>Create an Issue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#search" data-transition="flip">Search </a></p>
+<label for="title">Title :</label>
+<input type="text" id="title" name="title">
+<label for="category">Category :</label>
+<select id="category" name="category">
+<option value="25">Retail Technologies</option>
+<option value="28">Digital Dining</option>
+<option value="29">Aloha</option>
+</select>
+
+<label for="status">Status :</label>
+<select id="status" name="status">
+<option value="1">Open</option>
+<option value="2">Closed - Resolved</option>
+<option value="3">Closed - Not Resolved</option>
+<option value="4">Researching</option>
+<option value="5">Waiting on User</option>
+<option value="6">Waiting on Support</option>
+</select>
+
+<label for="priority">Priority :</label>
+<select id="priority" name="priority">
+<option value="1">Normal</option>
+<option value="2">Low</option>
+<option value="3">Critical</option>
+<option value="4">High</option>
+</select>
+
+<label for="assign">Assign :</label>
+<select id="assign" name="assign">
+<option value="37">vjoshi</option>
+<option value="43">mfunsch</option>
+<option value="44">jalves</option>
+</select>
+<br/><br/><br/>
+<input type="submit" value="Submit" data-inline="false">
+
+</div>
+<br/>
+<footer data-role="footer" data-position="fullscreen"><h1></h1></footer>
+</section>
+<!-- end first page -->
+
+
+<!-- Begin second page -->
+<section id="search" data-role="page">
+<header data-role="header"><h1>Showcase  - Field Services</h1></header>
+<div data-role="content" class="content">
+<br/>
+<label for="search">Search:</label>
+<input type="search" id="search" name="search">
+</div>
+<br/>
+<p><a href="#new" data-transition="flip" data-direction="reverse">Return to Home Page</a></p>
+<br/>
+<footer data-role="footer"><h1></h1></footer>
+</section>
+<!-- end second page -->
+
+</body>
+</html>
